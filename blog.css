@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Arial", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 body {
@@ -93,71 +93,168 @@ nav {
   background: #e6005f;
 }
 
-/* Hero Section */
+/* Hero Section - Updated */
 .hero {
-  background: linear-gradient(rgba(237, 70, 144, 0.8), rgba(85, 34, 204, 0.9)),
-    /* semi-transparent gradient */ url("./assets/Rectangle.png") center/cover
-      no-repeat; /* image behind */
-  padding: 150px 20px 80px;
+  background-image: linear-gradient(
+      135deg,
+      rgba(30, 20, 102, 0.9) 0%,
+      rgba(45, 29, 122, 0.85) 20%,
+      rgba(61, 42, 143, 0.8) 40%,
+      rgba(92, 74, 184, 0.7) 60%,
+      rgba(118, 96, 212, 0.6) 80%,
+      rgba(138, 122, 224, 0.5) 100%
+    ),
+    url("./assets/Rectangle.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: unset;
+  padding: 120px 20px 80px; /* top, horizontal, bottom */
   color: white;
+  border-radius: 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Remove background image */
+.hero::before {
+  display: none;
 }
 
 .hero-content {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0;
+  width: 100%;
+  position: relative;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 60px;
+  z-index: 2;
+}
+
+.blog-title {
+  font-size: 140px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 8px;
+  margin: 0;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Hide old title styles */
+.title-up,
+.title-down,
+.title-with-line,
+.underlining {
+  display: none;
 }
 
 .hero-image {
-  padding: 20px;
   position: relative;
-  display: inline-block;
-  justify-content: center;
-  align-items: center;
-  min-height: 350px;
-  position: relative;
-}
-
-.image-container .shadow {
-  position: absolute;
-  top: 10px;
-  left: 10px;
+  width: 100%;
+  max-width: 1000px;
   z-index: 1;
-  width: 10px; /* adjust size */
-  height: 10px; /* keep aspect ratio */
-  opacity: 0.5;
+  margin-top: auto;
 }
 
-.hero-text h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-  line-height: 1.2;
+.performers-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 -10px 40px rgba(0, 0, 0, 0.4));
 }
 
-.hero-text p {
-  font-size: 16px;
-  margin-bottom: 30px;
-  opacity: 0.9;
+/* Add decorative blur effects */
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(138, 122, 224, 0.3) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(80px);
+  top: 20%;
+  right: 10%;
+  pointer-events: none;
 }
 
-.hero-buttons {
-  display: flex;
-  gap: 15px;
+/* Remove kpop-image positioning if it exists */
+.kpop-image {
+  display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .blog-title {
+    font-size: 100px;
+    letter-spacing: 6px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100vh;
+    padding: 100px 20px 0;
+  }
+
+  .blog-title {
+    font-size: 70px;
+    letter-spacing: 4px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+  }
+
+  .hero-image {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-title {
+    font-size: 50px;
+    letter-spacing: 2px;
+  }
 }
 
 /* Search Section */
-.search-section {
-  background: #1e1b4b;
-  padding: 30px;
-  border-radius: 15px;
-  max-width: 1200px;
-  margin: -50px auto 0;
-  position: relative;
-  z-index: 10;
-}
 
 .search-grid {
   display: grid;
